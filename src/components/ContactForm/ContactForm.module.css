@@ -13,3 +13,8 @@
   margin: 10px 0;
   outline: rgb(63, 154, 240);
 }
+.loader {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}

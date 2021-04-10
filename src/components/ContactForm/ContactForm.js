@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import operations from '../../redux/operations';
 import s from './ContactForm.module.css';
+import { getLoading, getAllContacts } from '../../redux/selectors';
 
 class ContactForm extends Component {
   state = {
@@ -39,7 +40,7 @@ class ContactForm extends Component {
     const { handleInputChange, handleSubmit } = this;
     return (
       <>
-        {this.props.isLoading && <h1>Загружаем...</h1>}
+        {this.props.isLoading && <h1 className={s.loader}>Загружаем...</h1>}
         <form className={s.ContactForm} action="" onSubmit={handleSubmit}>
           <p>111-22-33</p>
           <label className={s.formLabel} name="name" htmlFor="">
@@ -75,8 +76,8 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  value: state.contacts.items,
-  isLoading: state.contacts.loading,
+  value: getAllContacts(state),
+  isLoading: getLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -36,6 +36,7 @@ const loading = createReducer(false, {
 });
 
 const error = createReducer(null, {
+  [fetchContactsError]: (_, { payload }) => alert(payload),
   [addContactError]: (_, { payload }) => alert(payload),
   [deleteContactError]: (_, { payload }) => alert(payload),
 });
